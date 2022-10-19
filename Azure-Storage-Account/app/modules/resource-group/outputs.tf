@@ -1,9 +1,10 @@
 // *** Azure Resource Group Outputs ***
-output "location" {
-  description = "Location"
-  value       = azurerm_resource_group.resource_group.location
-}
+
 output "name" {
   description = "Name"
-  value       = azurerm_resource_group.resource_group.name
+  value       = azurerm_resource_group.my-first-resource-group.name
+}
+output "location" {
+  description = "Location"
+  value       = azurerm_resource_group.my-first-resource-group.location
 }

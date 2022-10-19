@@ -7,5 +7,5 @@ tags = {
 
 // *** Storage Account Values ***
   storage_account_name = "myfirst1storageaccount"
-  account_tier = "Standart"
+  account_tier = "Standard"
   account_replication_type = "GRS"
