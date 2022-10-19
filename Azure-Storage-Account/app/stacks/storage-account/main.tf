@@ -1,6 +1,6 @@
 // *** Create Resource Group Values ***
-module "my-first-resource-group" {
-  source              = "../../modules/resource-group"
+module "rg-for-st" {
+  source              = "../../modules/resource_group"
   resource_group_name = var.resource_group_name
   location            = var.location
   tags                = var.tags
@@ -8,10 +8,10 @@ module "my-first-resource-group" {
 
 // *** Create Azure Storage Account ***
 module "my-first-storage_account" {
-  source                   = "../../modules/storage-account"
+  source                   = "../../modules/storage_account"
   storage_account_name     = var.storage_account_name
-  resource_group_name      = module.my-first-resource-group.name
-  location                 = module.my-first-resource-group.location
+  resource_group_name      = module.rg-for-st.name
+  location                 = module.rg-for-st.location
   account_tier             = var.account_tier
   account_replication_type = var.account_replication_type
 }
