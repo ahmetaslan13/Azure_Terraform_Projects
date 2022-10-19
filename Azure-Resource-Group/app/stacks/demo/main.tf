@@ -4,7 +4,7 @@ resource "random_pet" "this" {
 }
 
 resource "azurerm_resource_group" "this" {
-  name     = "demo-resources-${random_pet.this.id}"
+  name     = "demo-resourcesss-${random_pet.this.id}"
   location = "eastus"
 }
 
