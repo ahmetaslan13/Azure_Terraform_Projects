@@ -6,19 +6,6 @@ module "resource_group" {
   tags                = var.tags
 }
 
-// *** Create Log Analytics ***
-module "log_analytics" {
-  source              = "../../modules/log_analytics"
-  log_analytics_name  = var.log_analytics_name
-  resource_group_name = module.resource_group.name
-  location            = module.resource_group.location
-  retention_in_days   = var.retention_in_days
-  sku                 = var.sku
-  depends_on = [
-    module.resource_group
-  ]
-}
-
 // *** Create Virtual Network ***
 module "virtual_network" {
   source               = "../../modules/virtual_network"

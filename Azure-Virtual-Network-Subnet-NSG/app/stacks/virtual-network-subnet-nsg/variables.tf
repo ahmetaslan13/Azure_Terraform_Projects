@@ -12,20 +12,6 @@ variable "tags" {
   type        = map(any)
 }
 
-// *** Log Analytics Variables ***
-variable "log_analytics_name" {
-  description = ""
-  type        = string
-}
-variable "retention_in_days" {
-  description = ""
-  type        = string
-}
-variable "sku" {
-  description = ""
-  type        = string
-}
-
 // *** Virtual Network Variables ***
 variable "virtual_network_name" {
   description = ""
