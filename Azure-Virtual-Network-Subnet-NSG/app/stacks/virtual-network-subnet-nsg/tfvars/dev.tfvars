@@ -5,13 +5,8 @@ tags = {
   Enviroment = "dev"
 }
 
-// *** Log Analytics Values ***
-log_analytics_name = "log-networking"
-retention_in_days = "30"
-sku = "PerGB2018"
-
 // *** Virtual Network Values ***
-virtual_network_name = "network-networking"
+virtual_network_name = "virtual-network-name"
 address_space = "10.0.0.0/16"
 address_spaces = []
 dns_servers = ["10.0.0.4","10.0.0.5"]
@@ -19,13 +14,13 @@ dns_servers = ["10.0.0.4","10.0.0.5"]
 // *** Subnets Values ***
 subnets = {
   // *** Subnet for App Values ***
-  "subnet-2" = {
+  "subnet-1" = {
     address_prefixes = ["10.0.1.0/24"]
     network_security_group = {
-      name = "network_security_app_dev"
+      name = "nsg-subnet-1"
     }
     security_rule = {
-      name = "App Rules"
+      name = "Subnet 1 Security Rules"
       priority = "101"
       direction = "Inbound"
       access = "Allow"
@@ -40,10 +35,10 @@ subnets = {
   "subnet-2" = {
     address_prefixes = ["10.0.2.0/24"]
     network_security_group = {
-      name = "network_security_aks_dev"
+      name = "nsg-subnet-2"
     }
     security_rule = {
-      name = "Az Kubernetes Service Rules"
+      name = "Subnet 2 Security Rules"
       priority = "202"
       direction = "Inbound"
       access = "Allow"
