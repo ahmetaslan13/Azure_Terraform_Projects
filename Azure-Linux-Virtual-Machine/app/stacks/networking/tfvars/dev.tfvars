@@ -1,5 +1,5 @@
 // *** Resorce Group Values ***
-resource_group_name = "rg-vnet"
+resource_group_name = "rg-vnet-vm"
 location = "canadacentral"
 tags = {
   Enviroment = "dev"
