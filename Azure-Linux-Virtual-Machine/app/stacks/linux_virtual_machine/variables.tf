@@ -23,7 +23,7 @@ variable "private_ip_address_allocation" {
 }
 variable "subnet_id" {
   description = ""
-  type        = list(any)
+  type        = any
 }
 
 // *** VM Linux Variables ***

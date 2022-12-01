@@ -6,7 +6,7 @@ resource "azurerm_network_interface" "network_interface" {
   ip_configuration {
     name = var.ip_configuration_name
     //Set subnet id to VM 
-    subnet_id                     = var.subnet_id[1]
+    subnet_id                     = var.subnet_id
     private_ip_address_allocation = var.private_ip_address_allocation
   }
 }

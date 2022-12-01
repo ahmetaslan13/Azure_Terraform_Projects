@@ -13,7 +13,7 @@ variable "private_ip_address_allocation" {
 }
 variable "subnet_id" {
   description = ""
-  type        = list(any)
+  type        = any
 }
 
 // *** Azure Virtual Machine Linux Variables ***
@@ -32,7 +32,7 @@ variable "vm_size" {
 
 // *** Admin SSH Key Variables ***
 variable "linux_admin_username" {
-  description = ""
+  description = ""         
   type        = string
 }
 variable "public_key" {

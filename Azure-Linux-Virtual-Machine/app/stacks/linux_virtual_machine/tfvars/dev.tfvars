@@ -10,7 +10,7 @@ vm_name = "lx-vm-dev"
 vm_size  = "standard_D2_v3"
 linux_admin_username = "adminuser"
 public_key = "files/id_rsa.pub"
-subnet_id = <%= output('networking.subnet_ids') %>
+subnet_id = <%= output('networking.vm_subnet_id') %>
 ip_configuration_name = "internal"
 private_ip_address_allocation = "Dynamic"
 // OS Disk
