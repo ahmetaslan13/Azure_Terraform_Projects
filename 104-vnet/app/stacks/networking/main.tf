@@ -10,7 +10,7 @@ module "rg_networking" {
 module "vnet01" {
   source               = "../../modules/virtual_network"
   resource_group_name  = module.rg_networking.name
-    location             = module.rg_networking.location
+  location             = module.rg_networking.location
   virtual_network_name = var.virtual_network_name
   address_space        = var.address_space
   address_spaces       = var.address_spaces
@@ -35,7 +35,7 @@ module "vnet01_snets" {
 module "vnet2" {
   source               = "../../modules/virtual_network"
   resource_group_name  = module.rg_networking.name
-    location             = module.rg_networking.location
+  location             = module.rg_networking.location
   virtual_network_name = var.virtual_network_name2
   address_space        = var.address_space2
   address_spaces       = var.address_spaces2
@@ -59,7 +59,7 @@ module "vnet2_snets" {
 module "vnet3" {
   source               = "../../modules/virtual_network"
   resource_group_name  = module.rg_networking.name
-    location             = module.rg_networking.location
+  location             = module.rg_networking.location
   virtual_network_name = var.virtual_network_name3
   address_space        = var.address_space3
   address_spaces       = var.address_spaces3

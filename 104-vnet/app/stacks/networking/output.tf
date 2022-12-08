@@ -1,6 +1,6 @@
 // *** Network Stack Outputs ***
 output "vnet01_name" {
-    value = module.vnet01.name
+  value = module.vnet01.name
 }
 output "vnet01_snets_ids" {
   value = module.vnet01_snets.subnet_ids

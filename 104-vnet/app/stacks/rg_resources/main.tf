@@ -6,7 +6,7 @@ module "vnet01_vm0" {
   // *** Azure Windows Virtual Machine ***
   vm_name             = var.vm_name0
   resource_group_name = var.resource_group_name
-  location = var.location
+  location            = var.location
   vm_size             = var.vm_size0
   admin_username      = var.admin_username0
   admin_password      = var.admin_password0
@@ -35,7 +35,7 @@ module "vnet01_vm1" {
   // *** Azure Windows Virtual Machine ***
   vm_name             = var.vm_name1
   resource_group_name = var.resource_group_name
-  location = var.location
+  location            = var.location
   vm_size             = var.vm_size1
   admin_username      = var.admin_username1
   admin_password      = var.admin_password1
@@ -65,46 +65,41 @@ module "vnet01_vm1" {
 #   remote_virtual_network_id = var.peering_remote_vnet_id
 # }
 
-
-
-
-
-
-
+// Application Gateway - Public IP 
 module "appgw_pip" {
-  source = "../../modules/pip"
-  pip_name = var.pip_name
+  source              = "../../modules/pip"
+  pip_name            = var.pip_name
   resource_group_name = var.resource_group_name
-  location = var.location
-  allocation_method = var.allocation_method
+  location            = var.location
+  allocation_method   = var.allocation_method
 }
 
+// Application Gateway
 module "app_gateway" {
-  source = "../../modules/app_gateway"
-  app_gateway_name = var.app_gateway_name
-  vnet_name = var.app_gateway_vnet_name
+  source              = "../../modules/app_gateway"
+  app_gateway_name    = var.app_gateway_name
+  vnet_name           = var.app_gateway_vnet_name
   resource_group_name = var.resource_group_name
-  location = var.location
-  //SKU
-  sku_name = var.sku_name
-  sku_tier = var.sku_tier
+  location            = var.location
+  //Sku
+  sku_name     = var.sku_name
+  sku_tier     = var.sku_tier
   sku_capacity = var.sku_capacity
   //IP Config
-  gateway_ip_configuration_name = var.gateway_ip_configuration_name
+  gateway_ip_configuration_name      = var.gateway_ip_configuration_name
   gateway_ip_configuration_subnet_id = var.gateway_ip_configuration_subnet_id
-// Front Port
-frontend_port = var.frontend_port
-//Front PIP
-frontend_ip_configuration_pip_id = module.appgw_pip.id
-//Backend HTTP Settings
-backend_http_settings_cookie_based_affinity = var.backend_http_settings_cookie_based_affinity
-backend_http_settings_path = var.backend_http_settings_path
-backend_http_settings_port = var.backend_http_settings_port
-backend_http_settings_protocol = var.backend_http_settings_protocol
-backend_http_settings_request_timeout = var.backend_http_settings_request_timeout
-//HTTP Listener
-http_listener_protocol = var.http_listener_protocol
-//Routing
-request_routing_rule_rule_type = var.request_routing_rule_rule_type
-
+  // Front Port
+  frontend_port = var.frontend_port
+  //Front PIP
+  frontend_ip_configuration_pip_id = module.appgw_pip.id
+  //Backend HTTP Settings
+  backend_http_settings_cookie_based_affinity = var.backend_http_settings_cookie_based_affinity
+  backend_http_settings_path                  = var.backend_http_settings_path
+  backend_http_settings_port                  = var.backend_http_settings_port
+  backend_http_settings_protocol              = var.backend_http_settings_protocol
+  backend_http_settings_request_timeout       = var.backend_http_settings_request_timeout
+  //HTTP Listener
+  http_listener_protocol = var.http_listener_protocol
+  //Routing
+  request_routing_rule_rule_type = var.request_routing_rule_rule_type
 }

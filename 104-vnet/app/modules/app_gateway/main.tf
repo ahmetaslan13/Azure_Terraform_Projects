@@ -54,7 +54,7 @@ resource "azurerm_application_gateway" "network" {
     frontend_port_name             = local.frontend_port_name
     protocol                       = var.http_listener_protocol
   }
-  
+
   request_routing_rule {
     name                       = local.request_routing_rule_name
     rule_type                  = var.request_routing_rule_rule_type

@@ -5,7 +5,6 @@ tags = {
   Enviroment = "dev"
 }
 
-
 // *** Azure Windows Virtual Machine 01 ***
   vm_name0              = "az104-06-vm0"
   vm_size0                = "Standard_F2"
@@ -33,7 +32,6 @@ source_image_reference_version0   = "latest"
     Enviroment = "dev"
 }
 
-
 // *** Azure Windows Virtual Machine  1 ***
   vm_name1              = "az104-06-vm1"
   vm_size1                = "Standard_F2"
@@ -60,22 +58,16 @@ source_image_reference_version1   = "latest"
   nic_tags1 = {
     Enviroment = "dev"
 }
-
 //PIP
   pip_name                = "example-pip"
   allocation_method   = "Dynamic"
-
-  
 //azurerm_application_gateway"
   app_gateway_name                = "example-appgateway"
 app_gateway_vnet_name  = <%= output('networking.vnet01_name') %>
-
   //sku 
     sku_name     = "Standard_Small"
     sku_tier     = "Standard"
     sku_capacity = 2
-  
-
   //gateway_ip_configuration 
     gateway_ip_configuration_name      = "my-gateway-ip-configuration"
 gateway_ip_configuration_subnet_id = <%= output('networking.appgw_subnet_id') %>
@@ -85,16 +77,9 @@ gateway_ip_configuration_subnet_id = <%= output('networking.appgw_subnet_id') %>
     backend_http_settings_port                  = 80
     backend_http_settings_protocol              = "Http"
     backend_http_settings_request_timeout       = 60
-  
   //front
   frontend_port = 80
-
   //http_listener 
- 
     http_listener_protocol                       = "Http"
-  
-
   //request_routing_rule 
     request_routing_rule_rule_type                  = "Basic"
-
- 
