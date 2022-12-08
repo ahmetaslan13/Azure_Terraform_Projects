@@ -1,0 +1,2 @@
+// *** Azure Resource Group Outputs ***
+
